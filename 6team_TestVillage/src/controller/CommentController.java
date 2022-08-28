@@ -134,8 +134,9 @@ public class CommentController extends Controller implements Initializable {
 		
 		c.setContent(inputTf.getText()); //댓글 comment에 저장
 		if(Server.loginFlag) { //로그인 상태일 때		
-			if(chkNull == null) {
+			if(chkNull == null || chkNull.equals("")) {
 				cs.errorBox("주의", "주의", "댓글에 내용을 입력해주세요");
+				return;
 			}else {
 				switch(TestResult.testNum) {
 				case 1:
@@ -159,34 +160,10 @@ public class CommentController extends Controller implements Initializable {
 						cs.errorBox("댓글 입력 실패", "댓글 입력 실패", "오류가 발생했습니다. 관리자에게 문의해주세요");
 					}//end else
 					
-					//댓글 가져와서 뿌리기 (최근2건만)
-					root=cs.showWindow(s, "../resources/fxml/CommentTest.fxml");
-					List<Comment> commentList=new ArrayList<>();
-					commentList=cms.selectCommentListTest1();
+					
+					Back(event);
 
-					Label idLbl1=(Label) root.lookup("#idLbl1");
-					Label resLbl1=(Label) root.lookup("#resLbl1");
-					Label contentLbl1=(Label) root.lookup("#contentLbl1");
 					
-					Label idLbl2=(Label) root.lookup("#idLbl2");
-					Label resLbl2=(Label) root.lookup("#resLbl2");
-					Label contentLbl2=(Label) root.lookup("#contentLbl2");
-					
-					switch(commentList.size()) {
-					case 0 :
-						contentLbl1.setText("불러올 댓글이 없습니다");
-					case 1 :
-						idLbl1.setText(commentList.get(0).getId());
-						resLbl1.setText(commentList.get(0).getRes());
-						contentLbl1.setText(commentList.get(0).getContent());
-						break;
-					case 2 :
-						idLbl2.setText(commentList.get(1).getId());
-						resLbl2.setText(commentList.get(1).getRes());
-						contentLbl2.setText(commentList.get(1).getContent());
-						break;
-					}
-					cs.windowClose(event);
 					break;
 				case 2:
 					switch(TestResult.result){
@@ -209,34 +186,8 @@ public class CommentController extends Controller implements Initializable {
 						cs.errorBox("댓글 입력 실패", "댓글 입력 실패", "오류가 발생했습니다. 관리자에게 문의해주세요");
 					}//end else
 					
-					//댓글 가져와서 뿌리기 (최근2건만)
-					root=cs.showWindow(s, "../resources/fxml/CommentTest.fxml");
-					commentList=new ArrayList<>();
-					commentList=cms.selectCommentListTest2();
+					Back(event);
 					
-					idLbl1=(Label) root.lookup("#idLbl1");
-					resLbl1=(Label) root.lookup("#resLbl1");
-					contentLbl1=(Label) root.lookup("#contentLbl1");
-					
-					idLbl2=(Label) root.lookup("#idLbl2");
-					resLbl2=(Label) root.lookup("#resLbl2");
-					contentLbl2=(Label) root.lookup("#contentLbl2");
-					
-					switch(commentList.size()) {
-					case 0 :
-						contentLbl1.setText("불러올 댓글이 없습니다");
-					case 1 :
-						idLbl1.setText(commentList.get(0).getId());
-						resLbl1.setText(commentList.get(0).getRes());
-						contentLbl1.setText(commentList.get(0).getContent());
-						break;
-					case 2 :
-						idLbl2.setText(commentList.get(1).getId());
-						resLbl2.setText(commentList.get(1).getRes());
-						contentLbl2.setText(commentList.get(1).getContent());
-						break;
-					}
-					cs.windowClose(event);
 					break;
 				case 3: 
 					switch(TestResult.result){
@@ -259,31 +210,7 @@ public class CommentController extends Controller implements Initializable {
 						cs.errorBox("댓글 입력 실패", "댓글 입력 실패", "오류가 발생했습니다. 관리자에게 문의해주세요");
 					}//end else
 					
-					//댓글 가져와서 뿌리기 (최근2건만)
-					root=cs.showWindow(s, "../resources/fxml/CommentTest.fxml");
-					commentList=new ArrayList<>();
-					commentList=cms.selectCommentListTest3();
-					
-					idLbl1=(Label) root.lookup("#idLbl1");
-					resLbl1=(Label) root.lookup("#resLbl1");
-					contentLbl1=(Label) root.lookup("#contentLbl1");
-					
-					idLbl2=(Label) root.lookup("#idLbl2");
-					resLbl2=(Label) root.lookup("#resLbl2");
-					contentLbl2=(Label) root.lookup("#contentLbl2");
-					
-
-
-						idLbl1.setText(commentList.get(0).getId());
-						resLbl1.setText(commentList.get(0).getRes());
-						contentLbl1.setText(commentList.get(0).getContent());
-
-
-						idLbl2.setText(commentList.get(1).getId());
-						resLbl2.setText(commentList.get(1).getRes());
-						contentLbl2.setText(commentList.get(1).getContent());
-
-					cs.windowClose(event);
+					Back(event);
 					break;
 				}//end switch
 			}//end else
@@ -451,7 +378,7 @@ public class CommentController extends Controller implements Initializable {
 
 	}//MoreComment
 	
-	public void Back(ActionEvent event) { //전체 댓글 보기에서 댓글 창으로 돌아가기 + 돌아가지 않고 그냥 창 닫기로 구현
+	public void Back(ActionEvent event) { 
 		Stage s=new Stage();
 		s.setTitle("TestVillage");
 		Parent root=null;
