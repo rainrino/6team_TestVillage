@@ -6,7 +6,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<VBox prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayeun.controller.CommentController">
+<VBox prefHeight="600.0" prefWidth="600.0" stylesheets="@../css/mainstyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="controller.CommentController">
 
    <children>
       <AnchorPane prefHeight="613.0" prefWidth="600.0">

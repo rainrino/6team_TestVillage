@@ -1,4 +1,4 @@
-package dayeun.dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,11 +6,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dayeun.controller.Member;
-import dayeun.controller.Server;
-import dayeun.controller.TestPercent;
-import dayeun.service.CommonService;
-import dayeun.service.CommonServiceImpl;
+import controller.Member;
+import controller.Server;
+import controller.TestPercent;
+import service.CommonService;
+import service.CommonServiceImpl;
 
 public class TestDAOImpl implements TestDAO {
 
@@ -215,7 +215,7 @@ public class TestDAOImpl implements TestDAO {
 	public int modifyTest3Res1Percent() {
 		int resPercent=0;
 		
-		String sql = "	update test3percent set  selectRes1 = test1_res1.nextval	"; 
+		String sql = "	update test3percent set  selectRes1 = test3_res1.nextval	"; 
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			//pstmt.set
@@ -234,7 +234,7 @@ public class TestDAOImpl implements TestDAO {
 	public int modifyTest3Res2Percent() {
 		int resPercent=0;
 		
-		String sql = "	update test3percent set  selectRes1 = test1_res1.nextval	"; 
+		String sql = "	update test3percent set  selectRes2 = test3_res2.nextval	"; 
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			//pstmt.set
@@ -253,7 +253,7 @@ public class TestDAOImpl implements TestDAO {
 	public int modifyTest3Res3Percent() {
 		int resPercent=0;
 		
-		String sql = "	update test3percent set  selectRes1 = test1_res1.nextval	"; 
+		String sql = "	update test3percent set  selectRes3 = test3_res3.nextval	"; 
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			//pstmt.set

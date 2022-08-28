@@ -10,14 +10,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="600.0" stylesheets="@../../css/mainstyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayeun.controller.MemberDropController">
+<VBox prefHeight="600.0" prefWidth="600.0" stylesheets="@../css/mainstyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="controller.MemberDropController">
    <children>
       <ImageView fx:id="logoImg" fitHeight="60.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
             <Insets bottom="22.0" left="264.0" right="264.0" top="22.0" />
          </VBox.margin>
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@../img/logo.png" />
          </image>
       </ImageView>
       <HBox prefHeight="40.0" prefWidth="600.0">
@@ -41,8 +42,8 @@
                   <Insets left="30.0" />
                </padding>
             </Label>
-            <Label fx:id="dropSuccessLbl2" layoutX="97.0" layoutY="185.0" prefHeight="26.0" prefWidth="406.0" text="알려주신 내용으로 더 나은 테스트빌리지가 되겠습니다." />
-            <Button fx:id="homeBtn" layoutX="83.0" layoutY="275.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="435.0" style="-fx-background-color: rgb(52,152,219);" text="탈퇴하기" textFill="WHITE" />
+            <Label fx:id="dropSuccessLbl2" layoutX="97.0" layoutY="185.0" prefHeight="26.0" prefWidth="406.0" text="회원탈퇴 되었습니다. 다음에 다시 뵙기를 기대합니다!" />
+            <Button fx:id="homeBtn" onAction="#successDrop" layoutX="83.0" layoutY="275.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="435.0" style="-fx-background-color: rgb(52,152,219);" text="메인으로 가기" textFill="WHITE" />
          </children>
          <padding>
             <Insets left="30.0" />

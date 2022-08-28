@@ -1,6 +1,6 @@
-package dayeun.service;
+package service;
 
-import dayeun.controller.Member;
+import controller.Member;
 
 public interface MyPageService {
 	public Member selectMyPage(String id);

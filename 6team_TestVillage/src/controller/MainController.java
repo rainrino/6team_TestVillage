@@ -1,12 +1,12 @@
-package dayeun.controller;
+package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import dayeun.service.CommonService;
-import dayeun.service.CommonServiceImpl;
-import dayeun.service.MyPageService;
-import dayeun.service.MyPageServiceImpl;
+import service.CommonService;
+import service.CommonServiceImpl;
+import service.MyPageService;
+import service.MyPageServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -35,7 +35,8 @@ public class MainController extends Controller implements Initializable {
 	public void OpenHome(ActionEvent event) { //홈 페이지로 이동
 		// TODO Auto-generated method stub
 		Stage s=new Stage();
-		cs.showWindow(s, "../fxml/MainForm.fxml");
+		s.setTitle("TestVillage");
+		cs.showWindow(s, "../resources/fxml/MainForm.fxml");
 		cs.windowClose(event);
 	}//OpenHome
 
@@ -50,7 +51,8 @@ public class MainController extends Controller implements Initializable {
 		if(Server.loginFlag) { //로그인 flag가 true면 마이페이지로 이동, 아니면 로그인 페이지로 이동
 			CommonService cs=new CommonServiceImpl();
 			Stage s=new Stage();
-			Parent form=cs.showWindow(s, "../fxml/MyPageForm.fxml");
+			s.setTitle("TestVillage");
+			Parent form=cs.showWindow(s, "../resources/fxml/MyPageForm.fxml");
 			cs.windowClose(event);
 			//////////////////////////아이디에 따른 정보 가져와서 마이페이지에 뿌려주기///////////////////////////////////////
 			//ComboBox<String> cmbAge = (ComboBox<String>) form.lookup("#cmbAge");
@@ -102,7 +104,8 @@ public class MainController extends Controller implements Initializable {
 			Server.navigation="mypage";
 			CommonService cs=new CommonServiceImpl();
 			Stage s=new Stage();
-			cs.showWindow(s, "../fxml/LoginForm.fxml");
+			s.setTitle("TestVillage");
+			cs.showWindow(s, "../resources/fxml/LoginForm.fxml");
 			cs.windowClose(event);
 		}//end else
 	}//OpenMyPage
@@ -111,7 +114,8 @@ public class MainController extends Controller implements Initializable {
 	public void OpenTest1Page(ActionEvent event) { //다이어트 의지 테스트로 이동
 		CommonService cs=new CommonServiceImpl();
 		Stage s=new Stage();
-		cs.showWindow(s, "../fxml/test/Test1Form.fxml");
+		s.setTitle("TestVillage");
+		cs.showWindow(s, "../resources/fxml/test/Test1Form.fxml");
 		cs.windowClose(event);
 		TestResult.testNum=1;  // 테스트 하는 종류 표시 1. 다이어트 테스트
 	}//OpenTest1Page
@@ -119,7 +123,8 @@ public class MainController extends Controller implements Initializable {
 	public void OpenTest2Page(ActionEvent event) { //소비 성향 테스트로 이동
 		CommonService cs=new CommonServiceImpl();
 		Stage s=new Stage();
-		cs.showWindow(s, "../fxml/test/Test2Form.fxml");
+		s.setTitle("TestVillage");
+		cs.showWindow(s, "../resources/fxml/test/Test2Form.fxml");
 		cs.windowClose(event);
 		TestResult.testNum=2;  // 테스트 하는 종류 표시 2. 소비성향 테스트
 	}//OpenTest1Page
@@ -127,7 +132,8 @@ public class MainController extends Controller implements Initializable {
 	public void OpenTest3Page(ActionEvent event) { //모임 성향 테스트로 이동
 		CommonService cs=new CommonServiceImpl();
 		Stage s=new Stage();
-		cs.showWindow(s, "../fxml/test/Test3Form.fxml");
+		s.setTitle("TestVillage");
+		cs.showWindow(s, "../resources/fxml/test/Test3Form.fxml");
 		cs.windowClose(event);
 		TestResult.testNum=3;  // 테스트 하는 종류 표시 3. 모임성향 테스트
 	}//OpenTest1Page

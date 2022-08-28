@@ -1,8 +1,8 @@
-package dayeun.service;
+package service;
 
 import java.io.IOException;
 
-import dayeun.controller.Controller;
+import controller.Controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

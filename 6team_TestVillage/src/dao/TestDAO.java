@@ -1,7 +1,7 @@
-package dayeun.dao;
+package dao;
 
-import dayeun.controller.Member;
-import dayeun.controller.TestPercent;
+import controller.Member;
+import controller.TestPercent;
 
 public interface TestDAO {
 	public int modifyTest1Res(Member m); //사용자의 다이어트 테스트 결과를 저장하는 메소드

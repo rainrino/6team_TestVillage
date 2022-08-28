@@ -12,15 +12,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="600.0" stylesheets="@../../css/mainstyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
-fx:controller="dayeun.controller.MemberShipController">
+<VBox prefHeight="600.0" prefWidth="600.0" stylesheets="@../css/mainstyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="controller.MemberShipController">
    <children>
       <ImageView fx:id="logoImg" fitHeight="60.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
             <Insets bottom="22.0" left="264.0" right="264.0" top="22.0" />
          </VBox.margin>
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@../img/logo.png" />
          </image>
       </ImageView>
       <HBox prefHeight="40.0" prefWidth="600.0">
@@ -44,13 +44,13 @@ fx:controller="dayeun.controller.MemberShipController">
             <Label layoutX="78.0" layoutY="156.0" prefHeight="20.0" prefWidth="100.0" text="비밀번호" />
             <Label layoutX="78.0" layoutY="205.0" prefHeight="20.0" prefWidth="116.0" text="비밀번호 확인" />
             <Label layoutX="78.0" layoutY="287.0" prefHeight="20.0" prefWidth="100.0" text="이메일" />
-            <Label layoutX="112.0" layoutY="239.0" prefHeight="26.0" prefWidth="441.0" text="*비밀번호는 영문과 숫자로 20자 이내만 입력 가능합니다" />
+            <Label layoutX="112.0" layoutY="239.0" prefHeight="26.0" prefWidth="441.0" text="*비밀번호는 20자 이내만 입력 가능합니다" />
             <Button fx:id="chkBtn" onAction="#LoginDupChkForm" layoutX="412.0" layoutY="97.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="85.0" style="-fx-background-color: rgb(52,152,219);" text="중복확인" textFill="WHITE" />
             <TextField fx:id="emailTf" layoutX="204.0" layoutY="277.0" prefHeight="40.0" prefWidth="234.0" />
             <PasswordField fx:id="passPf" layoutX="204.0" layoutY="146.0" prefHeight="40.0" prefWidth="234.0" />
             <PasswordField fx:id="passChkPf" layoutX="204.0" layoutY="195.0" prefHeight="40.0" prefWidth="234.0" />
             <TextField fx:id="idTf" layoutX="204.0" layoutY="97.0" prefHeight="40.0" prefWidth="190.0" />
-            <Label layoutX="26.0" layoutY="14.0" prefHeight="55.0" prefWidth="261.0" text="회원가입" />
+            <Label fx:id="membershipLbl" layoutX="26.0" layoutY="14.0" prefHeight="55.0" prefWidth="261.0" text="회원가입" />
          </children>
          <padding>
             <Insets left="30.0" />

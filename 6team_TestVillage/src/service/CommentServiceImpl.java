@@ -1,11 +1,11 @@
-package dayeun.service;
+package service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import dayeun.controller.Comment;
-import dayeun.dao.CommentDAO;
-import dayeun.dao.CommentDAOImpl;
+import controller.Comment;
+import dao.CommentDAO;
+import dao.CommentDAOImpl;
 
 public class CommentServiceImpl implements CommentService{
 	CommentDAO cDAO=new CommentDAOImpl();

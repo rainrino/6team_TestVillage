@@ -1,9 +1,9 @@
-package dayeun.service;
+package service;
 
-import dayeun.controller.Member;
-import dayeun.controller.TestPercent;
-import dayeun.dao.TestDAO;
-import dayeun.dao.TestDAOImpl;
+import controller.Member;
+import controller.TestPercent;
+import dao.TestDAO;
+import dao.TestDAOImpl;
 
 public class TestServiceImpl implements TestService {
 	TestDAO tDAO=new TestDAOImpl();
@@ -81,14 +81,16 @@ public class TestServiceImpl implements TestService {
 
 	@Override
 	public int modifyTest3Res2Percent() {
-		// TODO Auto-generated method stub
-		return 0;
+		int resPercent=0;
+		resPercent=tDAO.modifyTest3Res2Percent();
+		return resPercent;
 	}
 
 	@Override
 	public int modifyTest3Res3Percent() {
-		// TODO Auto-generated method stub
-		return 0;
+		int resPercent=0;
+		resPercent=tDAO.modifyTest3Res3Percent();
+		return resPercent;
 	}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -111,6 +113,12 @@ public class TestServiceImpl implements TestService {
 		// TODO Auto-generated method stub
 		TestPercent tp=new TestPercent();
 		tp=tDAO.selectTest2Res();
+		
+		tp.setTestNum(2);
+		tp.setRes1Percent();
+		tp.setRes2Percent();
+		tp.setRes3Percent();
+		
 		return tp;
 	}
 
@@ -119,6 +127,12 @@ public class TestServiceImpl implements TestService {
 		// TODO Auto-generated method stub
 		TestPercent tp=new TestPercent();
 		tp=tDAO.selectTest3Res();
+		
+		tp.setTestNum(3);
+		tp.setRes1Percent();
+		tp.setRes2Percent();
+		tp.setRes3Percent();
+		
 		return tp;
 	}
 

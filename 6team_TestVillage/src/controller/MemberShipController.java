@@ -1,17 +1,19 @@
-package dayeun.controller;
+package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import dayeun.service.CommonService;
-import dayeun.service.CommonServiceImpl;
-import dayeun.service.LoginService;
-import dayeun.service.LoginServiceImpl;
-import dayeun.service.MemberShipService;
-import dayeun.service.MemberShipServiceImpl;
+import service.CommonService;
+import service.CommonServiceImpl;
+import service.LoginService;
+import service.LoginServiceImpl;
+import service.MemberShipService;
+import service.MemberShipServiceImpl;
+import service.MyPageService;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -22,6 +24,7 @@ public class MemberShipController extends Controller implements Initializable{
 	private Parent root;
 	private CommonService cs;
 	private MemberShipService mss;
+	private MyPageService mps;
 	/////////////////////////////////Controller 메소드/////////////////////////////////////////
 	@Override
 	public void setRoot(Parent root) {
@@ -40,41 +43,86 @@ public class MemberShipController extends Controller implements Initializable{
 	public void OpenHome(ActionEvent event) {
 		// TODO Auto-generated method stub
 		Stage s=new Stage();
-		cs.showWindow(s, "../fxml/MainForm.fxml");
+		s.setTitle("TestVillage");
+		cs.showWindow(s, "../resources/fxml/MainForm.fxml");
 		cs.windowClose(event);
 	}//OpenHome
 
 	@Override
-	public void OpenMyPage(ActionEvent event) {
-		// TODO Auto-generated method stub
+	public void OpenMyPage(ActionEvent event) { //마이 페이지로 이동
 		// TODO Auto-generated method stub
 		//현재 로그인인지 아닌지 구분
 		//로그인 상태 : 마이페이지로 이동
 		//비로그인 상태 : 로그인 페이지로 이동
-		Server server=new Server();
-		server.loginFlag=true;
-		server.id="123";
+		Member m=new Member();
 		
-		if(server.loginFlag) { //로그인 flag가 true면 마이페이지로 이동, 아니면 로그인 페이지로 이동
+		if(Server.loginFlag) { //로그인 flag가 true면 마이페이지로 이동, 아니면 로그인 페이지로 이동
 			CommonService cs=new CommonServiceImpl();
 			Stage s=new Stage();
-			cs.showWindow(s, "../fxml/MyPageForm.fxml");
-			
+			s.setTitle("TestVillage");
+			Parent form=cs.showWindow(s, "../resources/fxml/MyPageForm.fxml");
 			cs.windowClose(event);
+			//////////////////////////아이디에 따른 정보 가져와서 마이페이지에 뿌려주기///////////////////////////////////////
+			//ComboBox<String> cmbAge = (ComboBox<String>) form.lookup("#cmbAge");
+			
+			m=mps.selectMyPage(Server.id); //회원의 정보를 가져온다
+			
+			Label idLbl=(Label) form.lookup("#idLbl");
+			Label emailLbl=(Label) form.lookup("#emailLbl");
+			Label test1ResLbl=(Label) form.lookup("#test1ResLbl");
+			Label test2ResLbl=(Label) form.lookup("#test2ResLbl");
+			Label test3ResLbl=(Label) form.lookup("#test3ResLbl");
+			//테스트 결과 담을 String
+			String test1Res="";
+			String test2Res="";
+			String test3Res="";
+			
+			//테스트 결과 번호에 따른 테스트 결과 이름을 부여한다
+			switch(m.getTest1Res()){
+				case 1 : test1Res="타고난 다이어트 천재"; break;
+				case 2 : test1Res="희망이 보이는 다이어터"; break;
+				case 3 : test1Res="새싹 다이어터"; break;
+				default : test1Res="테스트하러가기";
+			}//end switch
+			
+			switch(m.getTest2Res()){
+				case 1 : test2Res="아찔한 파산형"; break;
+				case 2 : test2Res="위험한 지름신형"; break;
+				case 3 : test2Res="동전 가득 저금통형"; break;
+				default : test2Res="테스트하러가기";
+			}//end switch
+			
+			switch(m.getTest3Res()){
+				case 1 : test3Res="위풍당당 DNA"; break;
+				case 2 : test3Res="리액션왕 DNA"; break;
+				case 3 : test3Res="복세편살 DNA"; break;
+				default : test3Res="테스트하러가기";
+			}//end switch
+			
+			//회원 정보 마이페이지에 뿌리기
+			idLbl.setText(m.getId());
+			emailLbl.setText(m.getEmail());
+			test1ResLbl.setText(test1Res);
+			test2ResLbl.setText(test2Res);
+			test3ResLbl.setText(test3Res);
+
+			
 		}else {
+			//비회원인 상태에서 마이페이지 버튼을 눌렀을 경우
+			Server.navigation="mypage";
 			CommonService cs=new CommonServiceImpl();
 			Stage s=new Stage();
-			cs.showWindow(s, "../fxml/LoginForm.fxml");
-			
+			s.setTitle("TestVillage");
+			cs.showWindow(s, "../resources/fxml/LoginForm.fxml");
 			cs.windowClose(event);
 		}//end else
-		
 	}//OpenMyPage
 	
 	/////////////////////////////////////////////MemberShipController(회원가입) 메소드 ///////////////////////////////////////////////////////////
 	public void LoginDupChkForm(ActionEvent event) { // 아이디 중복 버튼을 눌렀을 때,
 		Stage s=new Stage();
-		cs.showWindow(s, "../fxml/ChkDupIdForm.fxml"); // 아이디 중복 확인 페이지를 연다
+		s.setTitle("TestVillage");
+		cs.showWindow(s, "../resources/fxml/ChkDupIdForm.fxml"); // 아이디 중복 확인 페이지를 연다
 		cs.windowClose(event);
 	}//LoginDupChk
 	
@@ -98,7 +146,7 @@ public class MemberShipController extends Controller implements Initializable{
 			cs.windowClose(event); //중복 아이디 페이지 닫기
 			
 			Stage s=new Stage();
-			Parent root=cs.showWindow(s, "../fxml/MemberShipForm.fxml");  
+			Parent root=cs.showWindow(s, "../resources/fxml/MemberShipForm.fxml");  
 			TextField idTf= (TextField) root.lookup("#idTf"); 
 			idTf.setText(chkId); //회원가입 아이디 textField에 사용하려는 아이디 입력
 		}else { //사용할 수 없는 아이디라면
@@ -109,8 +157,9 @@ public class MemberShipController extends Controller implements Initializable{
 	
 	public void Exit(ActionEvent event) {
 		Stage s=new Stage();
+		s.setTitle("TestVillage");
 		cs.windowClose(event); //아이디 중복확인 창을 닫는다
-		cs.showWindow(s, "../fxml/MemberShipForm.fxml"); //회원가입 창을 연다
+		cs.showWindow(s, "../resources/fxml/MemberShipForm.fxml"); //회원가입 창을 연다
 	}//Exit
 	
 	
@@ -131,12 +180,29 @@ public class MemberShipController extends Controller implements Initializable{
 			cs.errorBox("회원가입 오류", "회원가입 오류", "비밀번호가 서로 다릅니다. 다시 확인해주세요");
 			passPf.clear();
 			passChkPf.clear();
+			return;
 		}//end if
 		
 		if(pass.length() > 20) { //비밀번호가 20자리를 넘어간다면
 			cs.errorBox("회원가입 오류", "회원가입 오류", "비밀번호는 20자리를 넘을 수 없습니다. 다시 확인해주세요.");
 			passPf.clear();
 			passChkPf.clear();
+			return;
+		}//end if
+		
+		if(id==null || id.equals("") ) { //비밀번호가 20자리를 넘어간다면
+			cs.errorBox("회원가입 오류", "회원가입 오류", "아이디를 입력해주세요");
+			return;
+		}//end if
+		
+		if(pass==null || pass.equals("") ) { //비밀번호가 20자리를 넘어간다면
+			cs.errorBox("회원가입 오류", "회원가입 오류", "비밀번호를 입력해주세요");
+			return;
+		}//end if
+		
+		if(email==null || email.equals("") ) { //비밀번호가 20자리를 넘어간다면
+			cs.errorBox("회원가입 오류", "회원가입 오류", "이메일을 입력해주세요");
+			return;
 		}//end if
 		
 		Member m=new Member();
@@ -152,12 +218,12 @@ public class MemberShipController extends Controller implements Initializable{
 		Stage s=new Stage();
 		
 		if(res == 1) { // insert 되었을 때 -> 성공적으로 회원가입이 왼료되었을 때
-			cs.showWindow(s, "../fxml/MemberShipSuccessForm.fxml"); //회원가입 축하 페이지로 이동
+			cs.showWindow(s, "../resources/fxml/MemberShipSuccessForm.fxml"); //회원가입 축하 페이지로 이동
 			cs.windowClose(event);
 		}else {  // insert 되지 않았을 때
 			
 			cs.errorBox("회원가입 오류", "회원가입 오류", "문제가 발생했습니다. 관리자에게 문의해주시기 바랍니다.");
-			cs.showWindow(s, "../fxml/MainForm.fxml");
+			cs.showWindow(s, "../resources/fxml/MainForm.fxml");
 			cs.windowClose(event);
 			
 		}//end else
@@ -168,7 +234,8 @@ public class MemberShipController extends Controller implements Initializable{
 	
 	public void login(ActionEvent event) {
 		Stage s=new Stage();
-		cs.showWindow(s, "../fxml/LoginForm.fxml");
+		s.setTitle("TestVillage");
+		cs.showWindow(s, "../resources/fxml/LoginForm.fxml");
 		cs.windowClose(event);
 		Server.navigation="membership";
 	}//login

@@ -1,8 +1,8 @@
-package dayeun.service;
+package service;
 
-import dayeun.controller.Member;
-import dayeun.dao.MemberDAO;
-import dayeun.dao.MemberDAOImpl;
+import controller.Member;
+import dao.MemberDAO;
+import dao.MemberDAOImpl;
 
 public class MemberShipServiceImpl implements MemberShipService {
 	MemberDAO mDAO=new MemberDAOImpl();

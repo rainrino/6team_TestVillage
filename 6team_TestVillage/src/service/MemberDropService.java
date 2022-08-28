@@ -1,4 +1,4 @@
-package dayeun.service;
+package service;
 
 public interface MemberDropService {
 

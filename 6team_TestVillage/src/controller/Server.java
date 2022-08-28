@@ -1,4 +1,4 @@
-package dayeun.controller;
+package controller;
 
 public class Server {
 	public static boolean loginFlag=false; //현재 회원이 로그인 했는지 여부

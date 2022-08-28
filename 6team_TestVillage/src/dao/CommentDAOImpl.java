@@ -1,4 +1,4 @@
-package dayeun.dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,9 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import dayeun.controller.Comment;
-import dayeun.service.CommonService;
-import dayeun.service.CommonServiceImpl;
+import controller.Comment;
+import service.CommonService;
+import service.CommonServiceImpl;
 
 public class CommentDAOImpl implements CommentDAO {
 
@@ -107,7 +107,6 @@ public class CommentDAOImpl implements CommentDAO {
 				commentList.add(c);
 				num++;
 			}//end if
-			System.out.println(num);
 			
 
 		}catch (Exception e) {

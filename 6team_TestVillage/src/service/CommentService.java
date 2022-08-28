@@ -1,8 +1,8 @@
-package dayeun.service;
+package service;
 
 import java.util.List;
 
-import dayeun.controller.Comment;
+import controller.Comment;
 
 public interface CommentService {
 	public List<Comment> selectCommentListTest1(); //db에서 댓글을 가져오는 메소드(최근2개만)

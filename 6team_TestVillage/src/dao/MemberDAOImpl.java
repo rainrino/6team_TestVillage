@@ -1,4 +1,4 @@
-package dayeun.dao;
+package dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,10 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import dayeun.controller.Member;
-import dayeun.controller.Server;
-import dayeun.service.CommonService;
-import dayeun.service.CommonServiceImpl;
+import controller.Member;
+import controller.Server;
+import service.CommonService;
+import service.CommonServiceImpl;
 
 
 public class MemberDAOImpl implements MemberDAO {
@@ -147,7 +147,6 @@ public class MemberDAOImpl implements MemberDAO {
 			pstmt.setString(3, m.getEmail());
 			pstmt.setString(4, m.getDropFlag());
 			res = pstmt.executeUpdate();
-			System.out.println(res);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,6 +1,6 @@
-package dayeun.dao;
+package dao;
 
-import dayeun.controller.Member;
+import controller.Member;
 
 public interface MemberDAO {
 	public int chkDupId(String chkID);

@@ -1,4 +1,4 @@
-package dayeun.controller;
+package controller;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-import dayeun.service.CommentService;
-import dayeun.service.CommentServiceImpl;
-import dayeun.service.CommonService;
-import dayeun.service.CommonServiceImpl;
-import dayeun.service.MyPageService;
-import dayeun.service.MyPageServiceImpl;
+import service.CommentService;
+import service.CommentServiceImpl;
+import service.CommonService;
+import service.CommonServiceImpl;
+import service.MyPageService;
+import service.MyPageServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -43,7 +43,8 @@ public class CommentController extends Controller implements Initializable {
 	public void OpenHome(ActionEvent event) { //홈 페이지로 이동
 		// TODO Auto-generated method stub
 		Stage s=new Stage();
-		cs.showWindow(s, "../fxml/MainForm.fxml");
+		s.setTitle("TestVillage");
+		cs.showWindow(s, "../resources/fxml/MainForm.fxml");
 		cs.windowClose(event);
 	}//OpenHome
 
@@ -58,7 +59,8 @@ public class CommentController extends Controller implements Initializable {
 		if(Server.loginFlag) { //로그인 flag가 true면 마이페이지로 이동, 아니면 로그인 페이지로 이동
 			CommonService cs=new CommonServiceImpl();
 			Stage s=new Stage();
-			Parent form=cs.showWindow(s, "../fxml/MyPageForm.fxml");
+			s.setTitle("TestVillage");
+			Parent form=cs.showWindow(s, "../resources/fxml/MyPageForm.fxml");
 			cs.windowClose(event);
 			//////////////////////////아이디에 따른 정보 가져와서 마이페이지에 뿌려주기///////////////////////////////////////
 			//ComboBox<String> cmbAge = (ComboBox<String>) form.lookup("#cmbAge");
@@ -110,13 +112,15 @@ public class CommentController extends Controller implements Initializable {
 			Server.navigation="mypage";
 			CommonService cs=new CommonServiceImpl();
 			Stage s=new Stage();
-			cs.showWindow(s, "../fxml/LoginForm.fxml");
+			s.setTitle("TestVillage");
+			cs.showWindow(s, "../resources/fxml/LoginForm.fxml");
 			cs.windowClose(event);
 		}//end else
 	}//OpenMyPage
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	public void InsertComment(ActionEvent event) {
 		Stage s=new Stage();
+		s.setTitle("TestVillage");
 		setRoot(root);
 		Comment c=new Comment();
 		
@@ -156,7 +160,7 @@ public class CommentController extends Controller implements Initializable {
 					}//end else
 					
 					//댓글 가져와서 뿌리기 (최근2건만)
-					root=cs.showWindow(s, "../fxml/CommentTest.fxml");
+					root=cs.showWindow(s, "../resources/fxml/CommentTest.fxml");
 					List<Comment> commentList=new ArrayList<>();
 					commentList=cms.selectCommentListTest1();
 
@@ -206,7 +210,7 @@ public class CommentController extends Controller implements Initializable {
 					}//end else
 					
 					//댓글 가져와서 뿌리기 (최근2건만)
-					root=cs.showWindow(s, "../fxml/CommentTest.fxml");
+					root=cs.showWindow(s, "../resources/fxml/CommentTest.fxml");
 					commentList=new ArrayList<>();
 					commentList=cms.selectCommentListTest2();
 					
@@ -256,7 +260,7 @@ public class CommentController extends Controller implements Initializable {
 					}//end else
 					
 					//댓글 가져와서 뿌리기 (최근2건만)
-					root=cs.showWindow(s, "../fxml/CommentTest.fxml");
+					root=cs.showWindow(s, "../resources/fxml/CommentTest.fxml");
 					commentList=new ArrayList<>();
 					commentList=cms.selectCommentListTest3();
 					
@@ -285,19 +289,20 @@ public class CommentController extends Controller implements Initializable {
 			}//end else
 		
 		}else { //비회원 상태일 때
-			cs.showWindow(s, "../fxml/LoginForm.fxml");
+			cs.showWindow(s, "../resources/fxml/LoginForm.fxml");
 		}//end else
 		
 	}//InsertComment
 	
 	public void MoreComment(ActionEvent event) { //더 많은 댓글 보기 눌렀을 경우
 		Stage s=new Stage();
+		s.setTitle("TestVillage");
 		Parent root=null;
 		List<Comment> commentList=new ArrayList<>();
 		switch(TestResult.testNum) {
 		case 1: 
 			//댓글 가져와서 뿌리기 (5개)
-			root=cs.showWindow(s, "../fxml/CommentAllTest.fxml");
+			root=cs.showWindow(s, "../resources/fxml/CommentAllTest.fxml");
 			cs.windowClose(event);
 			commentList=cms.selectAllCommentListTest1();
 			
@@ -346,7 +351,7 @@ public class CommentController extends Controller implements Initializable {
 			break;
 		case 2:
 			//댓글 가져와서 뿌리기 (5개)
-			root=cs.showWindow(s, "../fxml/CommentAllTest.fxml");
+			root=cs.showWindow(s, "../resources/fxml/CommentAllTest.fxml");
 			cs.windowClose(event);
 			commentList=cms.selectAllCommentListTest2();
 			
@@ -394,7 +399,7 @@ public class CommentController extends Controller implements Initializable {
 			break;
 		case 3:
 			//댓글 가져와서 뿌리기 (5개)
-			root=cs.showWindow(s, "../fxml/CommentAllTest.fxml");
+			root=cs.showWindow(s, "../resources/fxml/CommentAllTest.fxml");
 			cs.windowClose(event);
 			commentList=cms.selectAllCommentListTest3();
 			
@@ -447,12 +452,13 @@ public class CommentController extends Controller implements Initializable {
 	
 	public void Back(ActionEvent event) { //전체 댓글 보기에서 댓글 창으로 돌아가기 + 돌아가지 않고 그냥 창 닫기로 구현
 		Stage s=new Stage();
+		s.setTitle("TestVillage");
 		Parent root=null;
 		List<Comment> commentList=new ArrayList<>();
 		switch(TestResult.testNum) {
 		case 1: 
 			//댓글 가져와서 뿌리기 (최근2건만)
-			root=cs.showWindow(s, "../fxml/CommentTest.fxml");
+			root=cs.showWindow(s, "../resources/fxml/CommentTest.fxml");
 			cs.windowClose(event);
 			commentList=cms.selectCommentListTest1();
 			
@@ -484,7 +490,7 @@ public class CommentController extends Controller implements Initializable {
 		case 2:
 			//댓글 가져와서 뿌리기 (최근2건만)
 			//댓글 가져와서 뿌리기 (최근2건만)
-			root=cs.showWindow(s, "../fxml/CommentTest.fxml");
+			root=cs.showWindow(s, "../resources/fxml/CommentTest.fxml");
 			cs.windowClose(event);
 			commentList=cms.selectCommentListTest2();
 			
@@ -514,7 +520,7 @@ public class CommentController extends Controller implements Initializable {
 			break;
 		case 3:
 			//댓글 가져와서 뿌리기 (최근2건만)
-			root=cs.showWindow(s, "../fxml/CommentTest.fxml");
+			root=cs.showWindow(s, "../resources/fxml/CommentTest.fxml");
 			cs.windowClose(event);
 			commentList=cms.selectCommentListTest3();
 			

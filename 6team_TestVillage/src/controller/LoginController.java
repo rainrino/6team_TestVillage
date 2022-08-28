@@ -1,12 +1,14 @@
-package dayeun.controller;
+package controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import dayeun.service.CommonService;
-import dayeun.service.CommonServiceImpl;
-import dayeun.service.LoginService;
-import dayeun.service.LoginServiceImpl;
+import service.CommonService;
+import service.CommonServiceImpl;
+import service.LoginService;
+import service.LoginServiceImpl;
+import service.MyPageService;
+import service.MyPageServiceImpl;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -21,7 +23,7 @@ public class LoginController extends Controller implements Initializable {
 	private CommonService cs;
 	private LoginService ls;
 	private MainController mc;
-	//private MyPageService mps;
+	private MyPageService mps;
 	
 	/////////////////////////////////Controller 메소드/////////////////////////////////////////
 	@Override
@@ -36,41 +38,84 @@ public class LoginController extends Controller implements Initializable {
 		cs=new CommonServiceImpl();
 		ls=new LoginServiceImpl();
 		mc=new MainController();
+		mps=new MyPageServiceImpl();
 	}//initialize
 
 	@Override
 	public void OpenHome(ActionEvent event) {
 		// TODO Auto-generated method stub
 		Stage s=new Stage();
-		cs.showWindow(s, "../fxml/MainForm.fxml");
+		s.setTitle("TestVillage");
+		cs.showWindow(s, "../resources/fxml/MainForm.fxml");
 		cs.windowClose(event);
 	}//OpenHome
 
 	@Override
-	public void OpenMyPage(ActionEvent event) {
-		// TODO Auto-generated method stub
+	public void OpenMyPage(ActionEvent event) { //마이 페이지로 이동
 		// TODO Auto-generated method stub
 		//현재 로그인인지 아닌지 구분
 		//로그인 상태 : 마이페이지로 이동
 		//비로그인 상태 : 로그인 페이지로 이동
-		Server server=new Server();
-		server.loginFlag=true;
-		server.id="123";
+		Member m=new Member();
 		
-		if(server.loginFlag) { //로그인 flag가 true면 마이페이지로 이동, 아니면 로그인 페이지로 이동
+		if(Server.loginFlag) { //로그인 flag가 true면 마이페이지로 이동, 아니면 로그인 페이지로 이동
 			CommonService cs=new CommonServiceImpl();
 			Stage s=new Stage();
-			cs.showWindow(s, "../fxml/MyPageForm.fxml");
-			
+			Parent form=cs.showWindow(s, "../resources/fxml/MyPageForm.fxml");
 			cs.windowClose(event);
+			//////////////////////////아이디에 따른 정보 가져와서 마이페이지에 뿌려주기///////////////////////////////////////
+			//ComboBox<String> cmbAge = (ComboBox<String>) form.lookup("#cmbAge");
+			
+			m=mps.selectMyPage(Server.id); //회원의 정보를 가져온다
+			
+			Label idLbl=(Label) form.lookup("#idLbl");
+			Label emailLbl=(Label) form.lookup("#emailLbl");
+			Label test1ResLbl=(Label) form.lookup("#test1ResLbl");
+			Label test2ResLbl=(Label) form.lookup("#test2ResLbl");
+			Label test3ResLbl=(Label) form.lookup("#test3ResLbl");
+			//테스트 결과 담을 String
+			String test1Res="";
+			String test2Res="";
+			String test3Res="";
+			
+			//테스트 결과 번호에 따른 테스트 결과 이름을 부여한다
+			switch(m.getTest1Res()){
+				case 1 : test1Res="타고난 다이어트 천재"; break;
+				case 2 : test1Res="희망이 보이는 다이어터"; break;
+				case 3 : test1Res="새싹 다이어터"; break;
+				default : test1Res="테스트하러가기";
+			}//end switch
+			
+			switch(m.getTest2Res()){
+				case 1 : test2Res="아찔한 파산형"; break;
+				case 2 : test2Res="위험한 지름신형"; break;
+				case 3 : test2Res="동전 가득 저금통형"; break;
+				default : test2Res="테스트하러가기";
+			}//end switch
+			
+			switch(m.getTest3Res()){
+				case 1 : test3Res="위풍당당 DNA"; break;
+				case 2 : test3Res="리액션왕 DNA"; break;
+				case 3 : test3Res="복세편살 DNA"; break;
+				default : test3Res="테스트하러가기";
+			}//end switch
+			
+			//회원 정보 마이페이지에 뿌리기
+			idLbl.setText(m.getId());
+			emailLbl.setText(m.getEmail());
+			test1ResLbl.setText(test1Res);
+			test2ResLbl.setText(test2Res);
+			test3ResLbl.setText(test3Res);
+
+			
 		}else {
+			//비회원인 상태에서 마이페이지 버튼을 눌렀을 경우
+			Server.navigation="mypage";
 			CommonService cs=new CommonServiceImpl();
 			Stage s=new Stage();
-			cs.showWindow(s, "../fxml/LoginForm.fxml");
-			
+			cs.showWindow(s, "../resources/fxml/LoginForm.fxml");
 			cs.windowClose(event);
 		}//end else
-		
 	}//OpenMyPage
 	
 	//////////////////////////////////////////////로그인 컨트롤러 메소드///////////////////////////////////////////////
@@ -85,9 +130,9 @@ public class LoginController extends Controller implements Initializable {
 		if(loginFlag) {
 			//사용자 정보가 일치하는 경우
 			switch(Server.navigation) {
-			case "mypage" : cs.showWindow(s, "../fxml/MainForm.fxml") ; break; //메인페이지 버튼 클릭 후 로그인 창 이동 했을 경우 마이페이지로 보내기
-			case "membership" : cs.showWindow(s, "../fxml/MainForm.fxml") ; break;
-			default: cs.showWindow(s, "../fxml/MainForm.fxml");
+			case "mypage" : cs.showWindow(s, "../resources/fxml/MainForm.fxml") ; break; //메인페이지 버튼 클릭 후 로그인 창 이동 했을 경우 마이페이지로 보내기
+			case "membership" : cs.showWindow(s, "../resources/fxml/MainForm.fxml") ; break;
+			default: cs.showWindow(s, "../resources/fxml/MainForm.fxml");
 			}//end switch
 			
 			cs.windowClose(event); //로그인 창을 닫는다
@@ -99,8 +144,9 @@ public class LoginController extends Controller implements Initializable {
 	
 	public void OpenMemberShipForm(ActionEvent event) { //회원가입 페이지로 이동
 		Stage s=new Stage();
+		s.setTitle("TestVillage");
 		Parent root=null;
-		root=cs.showWindow(s, "../fxml/MemberShipForm.fxml"); // 회원가입 페이지로 이동
+		root=cs.showWindow(s, "../resources/fxml/MemberShipForm.fxml"); // 회원가입 페이지로 이동
 		cs.windowClose(event); // 로그인 페이지를 닫는다
 
 		//myText.setEditable(false); --비활성화 방법 (사용자가 입력하지 못하게 함)

@@ -1,7 +1,7 @@
-package dayeun.service;
+package service;
 
-import dayeun.dao.MemberDAO;
-import dayeun.dao.MemberDAOImpl;
+import dao.MemberDAO;
+import dao.MemberDAOImpl;
 
 
 public class MemberDropServiceImpl implements MemberDropService {

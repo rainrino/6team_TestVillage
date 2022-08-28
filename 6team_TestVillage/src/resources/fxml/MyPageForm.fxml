@@ -11,14 +11,15 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="600.0" stylesheets="@../../css/mainstyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayeun.controller.MyPageController">
+<VBox prefHeight="600.0" prefWidth="600.0" stylesheets="@../css/mainstyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="controller.MyPageController">
    <children>
       <ImageView fx:id="logoImg" fitHeight="60.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
             <Insets bottom="22.0" left="264.0" right="264.0" top="22.0" />
          </VBox.margin>
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@../img/logo.png" />
          </image>
       </ImageView>
       <HBox prefHeight="40.0" prefWidth="600.0">
@@ -39,7 +40,7 @@
          <children>
             <ImageView fx:id="usericonImg" fitHeight="107.0" fitWidth="119.0" layoutX="40.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/user_icon.png" />
+                  <Image url="@../img/user_icon.png" />
                </image>
             </ImageView>
             <Label fx:id="idLbl" layoutX="184.0" layoutY="43.0" prefHeight="31.0" prefWidth="199.0" text="아이디" />
@@ -48,23 +49,23 @@
             <Label fx:id="testResLbl" layoutX="43.0" layoutY="161.0" prefHeight="31.0" prefWidth="145.0" text="나의 테스트 결과" />
             <ImageView fx:id="test1ResImg" fitHeight="93.0" fitWidth="107.0" layoutX="89.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/test1_res1.png" />
+                  <Image url="@../img/test1_res1.png" />
                </image>
             </ImageView>
             <ImageView fx:id="test2ResImg" fitHeight="93.0" fitWidth="107.0" layoutX="249.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/test2_res1.png" />
+                  <Image url="@../img/test2_res1.png" />
                </image>
             </ImageView>
             <ImageView fx:id="test3ResImg" fitHeight="93.0" fitWidth="107.0" layoutX="406.0" layoutY="214.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../img/test3_res2.png" />
+                  <Image url="@../img/test3_res2.png" />
                </image>
             </ImageView>
             <Label fx:id="test1ResLbl" layoutX="83.0" layoutY="316.0" prefHeight="31.0" prefWidth="119.0" text="다이어트 천재" />
             <Label fx:id="test2ResLbl" layoutX="249.0" layoutY="316.0" prefHeight="31.0" prefWidth="119.0" text="결과2" />
             <Label fx:id="test3ResLbl" layoutX="406.0" layoutY="316.0" prefHeight="31.0" prefWidth="119.0" text="결과2" />
-            <Button fx:id="logoutBtn" layoutX="92.0" layoutY="368.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="29.0" prefWidth="417.0" style="-fx-background-color: rgb(94, 94, 94);" text="로그아웃" textFill="WHITE">
+            <Button fx:id="logoutBtn" layoutX="90.0" layoutY="358.0" mnemonicParsing="false" onAction="#LogOut" prefHeight="29.0" prefWidth="417.0" style="-fx-background-color: rgb(94, 94, 94);" text="로그아웃" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font></Button>
@@ -72,9 +73,9 @@
                <font>
                   <Font size="16.0" />
                </font></Button>
-            <Button fx:id="testBtn1" onAction="#test1ResForm" layoutX="76.0" layoutY="214.0" mnemonicParsing="false" opacity="0.0" prefHeight="130.0" prefWidth="119.0" text="Button" />
-            <Button fx:id="testBtn2" onAction="#test2ResForm" layoutX="236.0" layoutY="214.0" mnemonicParsing="false" opacity="0.0" prefHeight="130.0" prefWidth="119.0" text="Button" />
-            <Button fx:id="testBtn3" onAction="#test3ResForm" layoutX="393.0" layoutY="214.0" mnemonicParsing="false" opacity="0.0" prefHeight="130.0" prefWidth="119.0" text="Button" />
+            <Button fx:id="testBtn1" layoutX="76.0" layoutY="214.0" mnemonicParsing="false" onAction="#test1ResForm" opacity="0.0" prefHeight="130.0" prefWidth="119.0" text="Button" />
+            <Button fx:id="testBtn2" layoutX="236.0" layoutY="214.0" mnemonicParsing="false" onAction="#test2ResForm" opacity="0.0" prefHeight="130.0" prefWidth="119.0" text="Button" />
+            <Button fx:id="testBtn3" layoutX="393.0" layoutY="214.0" mnemonicParsing="false" onAction="#test3ResForm" opacity="0.0" prefHeight="130.0" prefWidth="119.0" text="Button" />
          </children>
       </AnchorPane>
    </children>

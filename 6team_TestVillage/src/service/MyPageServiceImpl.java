@@ -1,9 +1,9 @@
-package dayeun.service;
+package service;
 
-import dayeun.controller.Member;
-import dayeun.controller.Server;
-import dayeun.dao.MemberDAO;
-import dayeun.dao.MemberDAOImpl;
+import controller.Member;
+import controller.Server;
+import dao.MemberDAO;
+import dao.MemberDAOImpl;
 
 public class MyPageServiceImpl implements MyPageService {
 	Server server;

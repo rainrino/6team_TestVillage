@@ -1,4 +1,4 @@
-package dayeun.controller;
+package controller;
 
 public class TestResult {
 	public static int testNum=0;

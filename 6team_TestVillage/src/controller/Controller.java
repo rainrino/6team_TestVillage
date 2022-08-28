@@ -1,4 +1,4 @@
-package dayeun.controller;
+package controller;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;

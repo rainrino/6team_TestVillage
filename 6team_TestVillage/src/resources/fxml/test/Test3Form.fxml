@@ -9,8 +9,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
-fx:controller="dayeun.controller.TestController">
+<VBox prefHeight="600.0" prefWidth="600.0" stylesheets="@../../css/mainstyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="controller.TestController">
    <children>
       <ImageView fx:id="logoImg" fitHeight="60.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
@@ -54,15 +54,7 @@ fx:controller="dayeun.controller.TestController">
                         <Insets top="40.0" />
                      </VBox.margin>
                   </Label>
-                  <Label alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="400.0" text="초록식탁 제공">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Label>
-                  <Label alignment="TOP_LEFT" prefHeight="40.0" prefWidth="400.0" text="0회 조회">
-                     <VBox.margin>
-                        <Insets top="10.0" />
-                     </VBox.margin>
+                  <Label alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="400.0" text="테스트빌리지 제공">
                      <font>
                         <Font size="14.0" />
                      </font>

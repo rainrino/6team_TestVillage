@@ -1,6 +1,6 @@
-package dayeun.service;
+package service;
 
-import dayeun.controller.Member;
+import controller.Member;
 
 public interface MemberShipService {
 	public int chkDupId(String chkID);

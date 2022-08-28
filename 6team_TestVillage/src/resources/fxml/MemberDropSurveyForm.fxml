@@ -11,14 +11,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="600.0" stylesheets="@../../css/mainstyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayeun.controller.MemberDropController">
+<VBox prefHeight="600.0" prefWidth="600.0" stylesheets="@../css/mainstyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" 
+fx:controller="controller.MemberDropController">
    <children>
       <ImageView fx:id="logoImg" fitHeight="60.0" fitWidth="72.0" pickOnBounds="true" preserveRatio="true">
          <VBox.margin>
             <Insets bottom="22.0" left="264.0" right="264.0" top="22.0" />
          </VBox.margin>
          <image>
-            <Image url="@../../img/logo.png" />
+            <Image url="@../img/logo.png" />
          </image>
       </ImageView>
       <HBox prefHeight="40.0" prefWidth="600.0">
@@ -44,7 +45,7 @@
             </Label>
             <Label fx:id="dropSurveyLbl2" layoutX="47.0" layoutY="82.0" prefHeight="26.0" prefWidth="506.0" text="알려주신 내용으로 더 나은 테스트빌리지가 되겠습니다." />
             <ComboBox fx:id="surveyCb" layoutX="45.0" layoutY="130.0" prefHeight="42.0" prefWidth="510.0" />
-            <Button fx:id="dropBtn" layoutX="113.0" layoutY="358.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="375.0" style="-fx-background-color: rgb(52,152,219);" text="탈퇴하기" textFill="WHITE" />
+            <Button fx:id="dropBtn"  onAction="#memberDrop" layoutX="113.0" layoutY="358.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="375.0" style="-fx-background-color: rgb(52,152,219);" text="탈퇴하기" textFill="WHITE" />
          </children>
          <padding>
             <Insets left="30.0" />

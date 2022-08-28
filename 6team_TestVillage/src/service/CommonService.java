@@ -1,4 +1,4 @@
-package dayeun.service;
+package service;
 
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;

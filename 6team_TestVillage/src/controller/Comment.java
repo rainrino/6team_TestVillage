@@ -1,4 +1,4 @@
-package dayeun.controller;
+package controller;
 
 public class Comment {
 	private String id;
