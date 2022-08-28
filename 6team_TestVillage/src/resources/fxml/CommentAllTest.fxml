@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+
+<VBox prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dayeun.controller.CommentController">
+
+   <children>
+      <AnchorPane prefHeight="613.0" prefWidth="600.0">
+         <children>
+            <Label fx:id="allcommentLbl" layoutX="40.0" layoutY="23.0" prefHeight="60.0" prefWidth="316.0" text="모든 댓글 보기" />
+            <Button fx:id="moreBtn" layoutX="450.0" layoutY="390.0" mnemonicParsing="false" opacity="0.0" prefHeight="29.0" prefWidth="117.0" text="Button" />
+            <Label fx:id="idLbl1" layoutX="76.0" layoutY="113.0" prefHeight="19.0" prefWidth="92.0" />
+            <Label fx:id="resLbl1" layoutX="206.0" layoutY="113.0" prefHeight="19.0" prefWidth="190.0" />
+            <Label fx:id="contentLbl1" layoutX="73.0" layoutY="152.0" prefHeight="19.0" prefWidth="447.0" />
+            <Label fx:id="idLbl2" layoutX="76.0" layoutY="195.0" prefHeight="19.0" prefWidth="92.0" />
+            <Label fx:id="resLbl2" layoutX="211.0" layoutY="195.0" prefHeight="19.0" prefWidth="190.0" />
+            <Label fx:id="contentLbl2" layoutX="73.0" layoutY="234.0" prefHeight="19.0" prefWidth="447.0" />
+            <Line endX="355.0" layoutX="168.0" layoutY="141.0" startX="-100.0" />
+            <Line endX="355.0" layoutX="169.0" layoutY="223.0" startX="-100.0" />
+            <Label fx:id="idLbl3" layoutX="75.0" layoutY="279.0" prefHeight="19.0" prefWidth="92.0" />
+            <Label fx:id="resLbl3" layoutX="205.0" layoutY="279.0" prefHeight="19.0" prefWidth="190.0" />
+            <Label fx:id="contentLbl3" layoutX="72.0" layoutY="318.0" prefHeight="19.0" prefWidth="447.0" />
+            <Label fx:id="idLbl4" layoutX="75.0" layoutY="361.0" prefHeight="19.0" prefWidth="92.0" />
+            <Label fx:id="resLbl4" layoutX="205.0" layoutY="361.0" prefHeight="19.0" prefWidth="190.0" />
+            <Label fx:id="contentLbl4" layoutX="72.0" layoutY="400.0" prefHeight="19.0" prefWidth="447.0" />
+            <Line endX="355.0" layoutX="167.0" layoutY="307.0" startX="-100.0" />
+            <Line endX="355.0" layoutX="168.0" layoutY="389.0" startX="-100.0" />
+            <Label fx:id="idLbl5" layoutX="81.0" layoutY="447.0" prefHeight="19.0" prefWidth="92.0" />
+            <Label fx:id="resLbl5" layoutX="211.0" layoutY="447.0" prefHeight="19.0" prefWidth="190.0" />
+            <Label fx:id="contentLbl5" layoutX="78.0" layoutY="486.0" prefHeight="19.0" prefWidth="447.0" />
+            <Line endX="355.0" layoutX="173.0" layoutY="475.0" startX="-100.0" />
+            <Button fx:id="backBtn" onAction="#Back" layoutX="452.0" layoutY="525.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="117.0" style="-fx-background-color: rgb(52, 152, 219);" text="돌아가기" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
