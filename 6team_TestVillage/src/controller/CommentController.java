@@ -290,6 +290,7 @@ public class CommentController extends Controller implements Initializable {
 		
 		}else { //비회원 상태일 때
 			cs.showWindow(s, "../resources/fxml/LoginForm.fxml");
+			cs.windowClose(event);
 		}//end else
 		
 	}//InsertComment
