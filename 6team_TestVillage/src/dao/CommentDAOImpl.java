@@ -24,7 +24,7 @@ public class CommentDAOImpl implements CommentDAO {
 		comServ = new CommonServiceImpl();
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			String url = "jdbc:oracle:thin:@192.168.35.195:1521:xe";
+			String url = "jdbc:oracle:thin:@127.0.0.1:1521:xe";
 			String user = "system";
 			String pass = "oracle";
 			//System.out.println("오라클연결");
