@@ -696,7 +696,7 @@ public class TestController extends Controller implements Initializable {
 				cs.windowClose(event);
 				break;
 			case 3 :
-				cs.showWindow(s, "../resources/fxml/test/Test1Res2Form.fxml");
+				cs.showWindow(s, "../resources/fxml/test/Test1Res3Form.fxml");
 				cs.windowClose(event);
 				break;
 			}//end switch
@@ -712,7 +712,7 @@ public class TestController extends Controller implements Initializable {
 				cs.windowClose(event);
 				break;
 			case 3 :
-				cs.showWindow(s, "../resources/fxml/test/Test2Res2Form.fxml");
+				cs.showWindow(s, "../resources/fxml/test/Test2Res3Form.fxml");
 				cs.windowClose(event);
 				break;
 			}//end switch
