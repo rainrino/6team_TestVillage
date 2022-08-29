@@ -25,12 +25,12 @@ fx:controller="controller.CommentController">
       </ImageView>
       <HBox prefHeight="40.0" prefWidth="600.0">
          <children>
-            <Button fx:id="homeBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: rgb(52,152,219);" text="홈" textFill="WHITE">
+            <Button fx:id="homeBtn" onAction="#OpenHome" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: rgb(52,152,219);" text="홈" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="mypageBtn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: rgb(224, 224, 224);" text="마이 페이지" textFill="WHITE">
+            <Button fx:id="mypageBtn" onAction="#OpenMyPage" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" style="-fx-background-color: rgb(224, 224, 224);" text="마이 페이지" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
