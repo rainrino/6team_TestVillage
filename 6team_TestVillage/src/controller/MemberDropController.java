@@ -162,6 +162,7 @@ public class MemberDropController extends Controller implements Initializable {
 		Stage s=new Stage();
 		s.setTitle("TestVillage");
 		cs.showWindow(s, "../resources/fxml/MainForm.fxml");
+		cs.windowClose(event);
 	}//successDrop
 	
 	

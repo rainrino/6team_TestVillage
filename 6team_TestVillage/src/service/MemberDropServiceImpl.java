@@ -13,7 +13,6 @@ public class MemberDropServiceImpl implements MemberDropService {
 		MemberDAO mDAO=new MemberDAOImpl();
 		
 		res=mDAO.dropMember();
-		System.out.println(res);
 		return res;
 	}//dropMember
 
