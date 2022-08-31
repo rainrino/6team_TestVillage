@@ -378,7 +378,7 @@ public class TestController extends Controller implements Initializable {
 				case 2: 
 				case 1: 
 				case 0: 
-					cs.showWindow(s, "../resources/fxml/test/Test1Res2Form.fxml");
+					cs.showWindow(s, "../resources/fxml/test/Test1Res3Form.fxml");
 					cs.windowClose(event); //6번째 질문 창 닫기
 					m.setTest1Res(3); //새싹 다이어터
 					TestResult.result=3;
