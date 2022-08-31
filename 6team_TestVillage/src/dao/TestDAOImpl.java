@@ -63,7 +63,7 @@ public class TestDAOImpl implements TestDAO {
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			//pstmt.set
-			pstmt.setInt(1, m.getTest1Res());
+			pstmt.setInt(1, m.getTest2Res());
 			pstmt.setString(2, Server.id);
 			resMember = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -84,7 +84,7 @@ public class TestDAOImpl implements TestDAO {
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			//pstmt.set
-			pstmt.setInt(1, m.getTest1Res());
+			pstmt.setInt(1, m.getTest3Res());
 			pstmt.setString(2, Server.id);
 			resMember = pstmt.executeUpdate();
 		} catch (SQLException e) {

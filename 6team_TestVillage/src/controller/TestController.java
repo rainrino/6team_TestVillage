@@ -496,7 +496,7 @@ public class TestController extends Controller implements Initializable {
 				case 6: 
 					cs.showWindow(s, "../resources/fxml/test/Test3Res1Form.fxml");
 					cs.windowClose(event); //6번째 질문 창 닫기
-					m.setTest2Res(1); //타고난 다이어트 천재
+					m.setTest3Res(1); //타고난 다이어트 천재
 					TestResult.result=1;
 					//사용자의 테스트 결과를 db 테이블 test1percent에 저장한다 (전체 선택된 수 / 퍼센테이지 계산 테이블)
 					ts.modifyTest3Res1Percent();
@@ -506,7 +506,7 @@ public class TestController extends Controller implements Initializable {
 				case 3: 
 					cs.showWindow(s, "../resources/fxml/test/Test3Res2Form.fxml");
 					cs.windowClose(event); //6번째 질문 창 닫기
-					m.setTest2Res(2); //희망이 보이는 다이어터
+					m.setTest3Res(2); //희망이 보이는 다이어터
 					TestResult.result=2;
 					//사용자의 테스트 결과를 test2percent에 저장한다
 					ts.modifyTest3Res2Percent();
@@ -516,7 +516,7 @@ public class TestController extends Controller implements Initializable {
 				case 0: 
 					cs.showWindow(s, "../resources/fxml/test/Test3Res3Form.fxml");
 					cs.windowClose(event); //6번째 질문 창 닫기
-					m.setTest2Res(3); //새싹 다이어터
+					m.setTest3Res(3); //새싹 다이어터
 					TestResult.result=3;
 					//사용자의 테스트 결과를 test3percent에 저장한다
 					ts.modifyTest3Res3Percent();
